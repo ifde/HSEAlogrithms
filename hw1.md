@@ -26,3 +26,28 @@ INIT: i не существует, считаем что все верно
 MNT: От противного: Если A[i] > A[i + k] для какого-то k, то на (k - 1)-й итерации 
 внутреннего цикла j = i + k, то есть A[i] > A[j]. Так как i = minId, то A[minId] > A[j] - противоречие, Ч.Т.Д.  
 TRM: i не существует, считаем что все верно  
+
+## Задача A5. Поиск значения в отсортированной матрице
+
+
+
+```
+std::pair<int, int> findElem(const std::vector<std::vector<int>>& A, int n, int key) {
+  int row = 0; // c1
+  int col = 0; // c1
+
+  while (row >= 0 && col < n) { // 2 * c3 * (2n - 1)
+    int elem = A[row][col]; // c1
+
+    if (elem == key) { // c3
+      return {row, col}; // c4
+    } else if (elem > key) { // c3
+      ++row; // c2
+    } else {
+      ++col; // c2
+    }
+  }
+
+  return {-1, -1}; // c4
+}
+```
