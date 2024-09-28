@@ -49,7 +49,7 @@ std::pair<int, int> findElem(const std::vector<std::vector<int>>& A, int n, int 
   int row = 0; // c1
   int col = 0; // c1
 
-  while (row >= 0 && col < n) { // 2 * c3 * (2n - 1)
+  while (row < n && col < n) { // 2 * c3 * (2n - 1)
     int elem = A[row][col]; // c1
 
     if (elem == key) { // c3
