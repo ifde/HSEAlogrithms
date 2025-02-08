@@ -478,34 +478,3 @@ p = 30:
 p = 31:
   Aa
 ```
-
-## Задача A4. Разные алгоритмы решения одной* задачи
-
-<img width="436" alt="image" src="https://github.com/user-attachments/assets/52ed6f26-4ada-4272-85ff-034c50e00537">
-<img width="578" alt="image" src="https://github.com/user-attachments/assets/037e17cd-a5d4-42d4-b59d-3d51d05765b9">
-
-
-## Задача A5. Поиск значения в отсортированной матрице
-
-```
-std::pair<int, int> findElem(const std::vector<std::vector<int>>& A, int n, int key) {
-  int row = 0; // c1
-  int col = 0; // c1
-
-  while (row < n && col < n) { // 2 * c3 * (2n - 1)
-    int elem = A[row][col]; // c1
-
-    if (elem == key) { // c3
-      return {row, col}; // c4
-    } else if (elem > key) { // c3
-      ++row; // c2
-    } else {
-      ++col; // c2
-    }
-  }
-
-  return {-1, -1}; // c4
-}
-```
-
-<img width="575" alt="image" src="https://github.com/user-attachments/assets/6dd5ceba-e16f-497a-bc60-a657146ff42a">
