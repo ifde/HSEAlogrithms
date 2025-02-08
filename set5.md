@@ -151,7 +151,6 @@ int main() {
   double totalHash2 = 0, totalHash3 = 0;
   double totalQuadTime = 0, totalCubicTime = 0;
 
-  // Эксперимент: numExperiments запусков для усреднения результатов
   for (int exp = 0; exp < 10; ++exp) {
     Hash2 quadTable(tableSize, quadC1, quadC2);
     Hash3 cubicTable(tableSize, cubicC1, cubicC2, cubicC3);
@@ -188,16 +187,6 @@ int main() {
   cout << "Среднее время на вставки (квадратичное пробирование): " << totalQuadTime / 10 << endl;
   cout << "Среднее время на вставки (кубическое пробирование): " << totalCubicTime / 10 << endl;
 
-  /*
-   * Выводы:
-   * Если avgCubicAttempts меньше, чем avgQuadAttempts, то кубическое пробирование показывает
-   * более равномерное распределение (меньше коллизий) при данных коэффициентах и уровне заполнения.
-   * Если же наоборот, то квадратичное пробирование может оказаться эффективнее.
-   *
-   * При реальном тестировании следует экспериментировать с различными значениями коэффициентов
-   * (c1, c2, c3) и размерами таблицы, поскольку эффективность зависит от этих параметров.
-   */
-
   return 0;
 }
 ```
@@ -208,7 +197,6 @@ int main() {
 <img width="559" alt="image" src="https://github.com/user-attachments/assets/3cd5b2c5-23e5-41bd-8851-23ac7591c914" />
 <img width="560" alt="image" src="https://github.com/user-attachments/assets/658d978f-df0f-4be4-b96b-de977cfe3ce4" />
 <img width="564" alt="image" src="https://github.com/user-attachments/assets/8ddf4c04-f8b9-439d-8aba-d380f0e6d813" />
-
 
 Как мы видим, кубическое пробирование дает очень небольшое преимущетсво. А ногда даже немного хуже. При это время работы для квадратичного и кубического случая неотличимы. 
 
